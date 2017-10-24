@@ -1,0 +1,8 @@
+1)	首先确定将来一段时间内是否过载。给每个磁盘设定label（过载，未过载）。总共有23天的数据，用前7天作为测试集，后面16天作为预测，采用1h的时间粒度。如果在后面16天出现过载则标记为过载，没有则标记为未过载。使用决策树进行预测，计算预测准确率等。
+2)	预测超过阈值的时间。对于预测出将要过载的磁盘，分析历史趋势，用时间序列分析的方法预测。（问题：a.这与直接使用时间序列分析预测相比有没有优势，时间上来讲是决策树更快些，其他的不知道有没有依据。b.照以前用arima模型的结果看，序列的拟合效果越久越偏离，如果使用时间序列分析是否考虑其他的方法）
+
+1.abnormal_detect.r 用stl检测出异常时间并记录
+2.statistics_abnormal.py 统计每日和每周的异常情况，随后手动统计，文件为data//abnormal_day.csv&&data//abnormal_weel.csv
+3.abnormal_clustering.py 统计每个host的每日和每周异常情况。结果文件放在data//statistics_abnormal_time//week_abnormal_eachhost.csv、each_abnormal_eachhost.csv中。
+
+4.随后按照集群再统计一次

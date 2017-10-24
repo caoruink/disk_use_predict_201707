@@ -1,0 +1,5 @@
+1.sample_seize.py  从solved_data文件夹里取样本，七天+4个目标值
+2.feature_seize.py 统计特征与响应变量的相关性。
+
+又改了一点。。。
+加入2天后，三天后的。
